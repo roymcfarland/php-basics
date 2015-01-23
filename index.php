@@ -1,16 +1,36 @@
 <?php
 
-// Variables
-$name = 'Mike the Frog';
-$location = 'Orlando, FL';
+// GLOBAL VARIABLES
+$first_name = 'Roy';
+$last_name = 'McFarland';
+$location = 'Denver, Colorado';
+$role = 'Foo';
 
-// Constants
+// GLOBAL CONSTANTS
+define('USE_FULL_NAME', FALSE);
 define('YEAR', 2014);
 define('JOB_TITLE', 'Developer');
-define('MAX_BADGES', 150000);
-
+define('MAX_BADGES', 1500);
 // Invalid constant
 // define('2LEGIT', 'to quit');
+
+// If / else conditional
+if( USE_FULL_NAME == TRUE ){
+  $name = $first_name . ' ' . $last_name;
+} else {
+  $name = $first_name;
+}
+
+// If / elseif / else conditional
+if( $role == 'Developer' ) {
+  $info = 'I am a developer in training.';
+} elseif( $role == 'Lawyer' ) {
+  $info = 'I am a lawyer.';
+} else {
+  $info = 'I am just a simple human.';
+}
+
+$social_icons = ['twitter', 'facebook', 'instagram', 'github'];
 
 ?>
 
@@ -33,7 +53,13 @@ define('MAX_BADGES', 150000);
       <p>Welcome to PHP Basics!</p>
       <hr />
       <ul class="social">
-        <li><a href=""><span class="icon twitter"></span></a></li>
+        <?php
+          foreach($social_icons as $icon){
+        ?>  
+            <li><a href=""><span class="icon <?php echo $icon ?>"></span></a></li>
+        <?php
+          }
+        ?>
       </ul>
     </section>
     <section class="main">
@@ -167,6 +193,21 @@ define('MAX_BADGES', 150000);
             // var_dump( $b or $c ); // True
             // var_dump( ! $a ); // False
             // var_dump( ! $c ); // True
+  
+          ////////////////////////////////
+          ///// CONDITIONALS & LOOPS /////
+          ////////////////////////////////
+  
+          // echo $info;
+          
+          // // For Loop
+            // for($counter=0; $counter < MAX_BADGES; $counter++){
+            //   echo '<ul><li>' . $counter . '</li></ul>';
+            // }
+
+          // For Each Loop
+            // See social $icons (above)
+          
 
       ?></pre>
     </section>
